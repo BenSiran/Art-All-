@@ -347,3 +347,316 @@
     </script>
 </body>
 </html>
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 3rem;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .gradient-bg-1 {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .gradient-bg-2 {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-critical { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .badge-high { background: rgba(249, 115, 22, 0.2); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .badge-medium { background: rgba(234, 179, 8, 0.2); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.3); }
+        .badge-low { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.3); }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+        .checkmark {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 1.75rem;
+            height: 1.75rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .controls {
+            background: #1e293b;
+            border-top: 1px solid #334155;
+            padding: 1.5rem 2rem;
+        }
+
+        .controls-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button {
+            background: #1e293b;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button.btn-primary { background: #3b82f6; }
+        .dots { display: flex; gap: 0.75rem; }
+        .dot { width: 0.75rem; height: 0.75rem; background: #334155; border-radius: 50%; cursor: pointer; }
+        .dot.active { background: #3b82f6; width: 2rem; border-radius: 9999px; }
+
+        .tag {
+            display: inline-block;
+            background: rgba(51, 65, 85, 0.5);
+            color: #cbd5e1;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="slide-container">
+            <div class="slide active gradient-bg-1" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+                <div style="margin-bottom: 2rem; width: 100%; max-width: 450px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://i.ibb.co/ZRb89tVs/IMG-20251227-000226-485.jpg" 
+                         alt="Art and All Logo" 
+                         style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                </div>
+                <h1>Daily Production Report</h1>
+                <div style="width: 8rem; height: 0.25rem; background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899); margin: 1rem auto;"></div>
+                <p class="subtitle">Real Estate Branding Video Project</p>
+                <p style="font-size: 1.25rem; color: #94a3b8; margin-bottom: 2rem;">December 27, 2025</p>
+                <div style="background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.5); border-radius: 9999px; padding: 1rem 2rem;">
+                    <p style="color: #86efac; font-weight: 500; font-size: 1.125rem;">⏱️ Completed & Delivered - Intensive Single Day Production</p>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-2">
+                <h2>Project Scope & Delivery</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon">🖼️</div><div class="stat-value">100+</div><div class="stat-label">Images Generated</div></div>
+                    <div class="stat-card"><div class="stat-icon">🎬</div><div class="stat-value">~100</div><div class="stat-label">Videos Generated</div></div>
+                    <div class="stat-card"><div class="stat-icon">⏱️</div><div class="stat-value">1 Day</div><div class="stat-label">Production Time</div></div>
+                    <div class="stat-card"><div class="stat-icon">✓</div><div class="stat-value">Done</div><div class="stat-label">Delivery Status</div></div>
+                </div>
+                <div class="card" style="background: linear-gradient(90deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2)); border-color: rgba(34, 197, 94, 0.5);">
+                    <h3>📤 Delivery Status</h3>
+                    <p>Initial version delivered to Department Manager</p>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-1">
+                <h2>Complete Production Workflow</h2>
+                <div class="grid-2">
+                    <div class="card"><h3>1. Pre-Production</h3><span class="tag">Prompt Engineering</span><span class="tag">Storyboard</span></div>
+                    <div class="card"><h3>2. Asset Generation</h3><span class="tag">100+ Images</span><span class="tag">~100 Videos</span></div>
+                    <div class="card"><h3>3. Post-Production</h3><span class="tag">Video Editing</span><span class="tag">Color Grading</span></div>
+                    <div class="card"><h3>4. Audio & Motion</h3><span class="tag">Dubbing</span><span class="tag">Animations</span></div>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-2">
+                <h2>Generated Assets Preview</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                    <img src="https://i.ibb.co/qYn6Rt2S/Picsart-25-12-27-16-27-34-025.jpg" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0.75rem; border: 2px solid #334155;">
+                    <img src="https://i.ibb.co/nN5Xm0kP/Picsart-25-12-27-16-26-52-123.jpg" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0.75rem; border: 2px solid #334155;">
+                    <img src="https://i.ibb.co/xtXr7mH6/Picsart-25-12-27-16-28-43-510.jpg" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0.75rem; border: 2px solid #334155;">
+                </div>
+                <div class="grid-2">
+                    <div class="card"><h3>Storyboarding</h3><p>Developed visual narrative structure</p></div>
+                    <div class="card"><h3>Prompt Engineering</h3><p>Refined AI inputs for consistency</p></div>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-1">
+                <h2>Production Volume</h2>
+                <div class="grid-3">
+                    <div class="stat-card"><div class="stat-value">200+</div><div class="stat-label">Total Assets</div></div>
+                    <div class="stat-card"><div class="stat-value">50+</div><div class="stat-label">Prompt Iterations</div></div>
+                    <div class="stat-card"><div class="stat-value">14h</div><div class="stat-label">Work Hours</div></div>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-2" style="display: flex; flex-direction: column; justify-content: center;">
+                <h2>Executive Summary</h2>
+                <div class="checkmark"><div class="check-icon">✓</div><p>Intensive one-day production completed.</p></div>
+                <div class="checkmark"><div class="check-icon">✓</div><p>200+ high-quality assets delivered.</p></div>
+                <div class="checkmark"><div class="check-icon">✓</div><p>GitHub documentation synced.</p></div>
+                <div class="highlight-box"><p style="font-size: 1.5rem;">Pipeline executed. Feedback initiated.</p></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="controls-inner">
+                <button id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+                <div class="dots" id="dotsContainer"></div>
+                <button id="nextBtn" onclick="changeSlide(1)" class="btn-primary">Next ▶</button>
+            </div>
+            <div class="slide-counter" id="slideCounter" style="text-align: center; margin-top: 10px; color: #64748b;"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function initDots() {
+            const dotsContainer = document.getElementById('dotsContainer');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index === currentSlide) slide.classList.add('active');
+                else if (index < currentSlide) slide.classList.add('prev');
+            });
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentSlide));
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+        }
+
+        function changeSlide(direction) {
+            currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+            updateSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        initDots();
+        updateSlide();
+    </script>
+</body>
+</html>
