@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Production Report - Real Estate Branding Video</title>
+    <title>Production Report - Real Estate Branding</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -18,43 +18,46 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             padding: 3rem; opacity: 0; transform: translateX(100%);
-            transition: all 0.5s ease; overflow-y: auto;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto;
         }
         .slide.active { opacity: 1; transform: translateX(0); }
         .slide.prev { transform: translateX(-100%); }
-        .gradient-bg-1 { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
-        .gradient-bg-2 { background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%); }
         
-        h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
-        h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #f8fafc; }
-        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #60a5fa; }
+        .gradient-bg-1 { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .gradient-bg-2 { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
         
-        .subtitle { font-size: 1.75rem; color: #94a3b8; margin-bottom: 0.5rem; }
+        h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        h2 { font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: #f8fafc; border-left: 4px solid #3b82f6; padding-left: 1rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; color: #60a5fa; }
+        
+        .subtitle { font-size: 1.5rem; color: #94a3b8; margin-bottom: 0.5rem; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
-        .stat-card { background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; border-radius: 1.25rem; padding: 2rem; text-align: center; }
-        .stat-value { font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
-        .stat-label { color: #94a3b8; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card { background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; border-radius: 1.25rem; padding: 1.5rem; text-align: center; }
+        .stat-value { font-size: 2.5rem; font-weight: 800; color: #fff; }
+        .stat-label { color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
         
-        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; }
+        .card { background: rgba(30, 41, 59, 0.3); border: 1px solid #334155; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1rem; }
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         
-        .tag { display: inline-block; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; margin: 0.25rem; color: #93c5fd; }
+        .tag { display: inline-block; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.8rem; margin: 0.2rem; color: #bfdbfe; }
         
-        .controls { background: #0f172a; border-top: 1px solid #1e293b; padding: 1.5rem 2rem; }
+        .video-box { background: #000; border-radius: 1.5rem; padding: 2rem; text-align: center; border: 1px solid #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
+        
+        .controls { background: #0f172a; border-top: 1px solid #1e293b; padding: 1.25rem 2rem; }
         .controls-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
         
-        button { background: #1e293b; color: #fff; border: 1px solid #334155; padding: 0.75rem 1.75rem; border-radius: 0.75rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
-        button:hover { background: #334155; border-color: #475569; }
-        button.btn-primary { background: #3b82f6; border-color: #60a5fa; }
+        button { background: #1e293b; color: #fff; border: 1px solid #334155; padding: 0.75rem 1.5rem; border-radius: 0.75rem; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        button:hover { background: #334155; }
+        button.btn-primary { background: #3b82f6; border: none; }
         
-        .dots { display: flex; gap: 0.75rem; }
-        .dot { width: 0.75rem; height: 0.75rem; background: #334155; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: #3b82f6; width: 2.5rem; border-radius: 9999px; }
+        .dots { display: flex; gap: 0.5rem; }
+        .dot { width: 0.6rem; height: 0.6rem; background: #334155; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: #3b82f6; width: 2rem; border-radius: 1rem; }
 
-        .gallery-img { width: 100%; height: 280px; object-fit: cover; border-radius: 1.25rem; border: 2px solid #334155; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+        .gallery-img { width: 100%; height: 220px; object-fit: cover; border-radius: 1rem; border: 1px solid #334155; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.25rem; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .grid-2 { grid-template-columns: 1fr; }
         }
@@ -64,65 +67,79 @@
     <div class="presentation">
         <div class="slide-container">
             <div class="slide active gradient-bg-1" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                <h1 style="margin-top: -2rem;">Daily Production Report</h1>
-                <div style="width: 12rem; height: 0.4rem; background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899); margin: 1.5rem auto;"></div>
+                <h1 style="color: #fff;">Daily Production Report</h1>
+                <div style="width: 10rem; height: 0.3rem; background: #3b82f6; margin: 1.5rem auto;"></div>
                 <p class="subtitle">Real Estate Branding Video Project</p>
-                <p style="font-size: 1.5rem; color: #64748b; margin-bottom: 3rem;">December 27, 2025</p>
+                <p style="font-size: 1.25rem; color: #64748b; margin-bottom: 3rem;">December 27, 2025</p>
                 
-                <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 1.5rem; padding: 1.5rem 3rem;">
-                    <p style="color: #4ade80; font-weight: 600; font-size: 1.25rem;">✅ Completed & Delivered - Intensive 24h Production</p>
+                <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 1rem; padding: 1.25rem 2.5rem;">
+                    <p style="color: #60a5fa; font-weight: 600; font-size: 1.1rem;">⚡ Intensive 18-Hour Production Cycle Completed</p>
                 </div>
             </div>
 
             <div class="slide gradient-bg-2">
-                <h2>Production Overview</h2>
+                <h2>Production Scale & Scope</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><div class="stat-value">100+</div><div class="stat-label">Images</div></div>
-                    <div class="stat-card"><div class="stat-value">~100</div><div class="stat-label">Videos</div></div>
-                    <div class="stat-card"><div class="stat-value">14h</div><div class="stat-label">Production</div></div>
-                    <div class="stat-card"><div class="stat-value">Done</div><div class="stat-label">Status</div></div>
+                    <div class="stat-card"><div class="stat-value">200+</div><div class="stat-label">AI Assets Produced</div></div>
+                    <div class="stat-card"><div class="stat-value">120+</div><div class="stat-label">Unique Video Clips</div></div>
+                    <div class="stat-card"><div class="stat-value">18h</div><div class="stat-label">Production Time</div></div>
+                    <div class="stat-card"><div class="stat-value">60s</div><div class="stat-label">Final Brand Promo</div></div>
                 </div>
                 <div class="grid-2">
                     <div class="card">
-                        <h3>Workflow Status</h3>
-                        <p style="color: #cbd5e1; line-height: 1.6;">Full pipeline executed: Prompt engineering, asset generation, storyboarding, and assembly in one day.</p>
+                        <h3>Core Workload</h3>
+                        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Executed high-speed parallel workflows involving: Prompt Engineering, High-Volume Asset Generation, and Storyboard Alignment.</p>
                     </div>
                     <div class="card">
-                        <h3>Next Action</h3>
-                        <p style="color: #cbd5e1; line-height: 1.6;">Awaiting Department Manager feedback for final polish and high-res rendering.</p>
+                        <h3>Asset Breakdown</h3>
+                        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Produced over 80-120 high-fidelity images and videos combined, curated specifically for the Branding narrative.</p>
                     </div>
                 </div>
             </div>
 
             <div class="slide gradient-bg-1">
-                <h2>Generated Assets Preview</h2>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
+                <h2>1-Minute Branding Master</h2>
+                <div class="video-box">
+                    <h3 style="color: #fff;">Real Estate Promotion V1.0</h3>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <span class="tag">Professional Dubbing</span>
+                        <span class="tag">Sound Engineering</span>
+                        <span class="tag">Final Video Editing</span>
+                        <span class="tag">Advanced Color Grading</span>
+                        <span class="tag">Foley & SFX Mixing</span>
+                        <span class="tag">Subtitling & Motion Graphics</span>
+                    </div>
+                    <p style="margin-top: 2rem; color: #64748b; font-style: italic;">"Complete audio-visual synchronization with custom soundscapes."</p>
+                </div>
+            </div>
+
+            <div class="slide gradient-bg-2">
+                <h2>Visual Production Samples</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
                     <img src="https://i.ibb.co/qYn6Rt2S/Picsart-25-12-27-16-27-34-025.jpg" class="gallery-img">
                     <img src="https://i.ibb.co/nN5Xm0kP/Picsart-25-12-27-16-26-52-123.jpg" class="gallery-img">
                     <img src="https://i.ibb.co/xtXr7mH6/Picsart-25-12-27-16-28-43-510.jpg" class="gallery-img">
                 </div>
-                <div style="margin-top: 2rem;">
-                    <span class="tag">AI Generation</span>
-                    <span class="tag">Color Correction</span>
-                    <span class="tag">Visual Consistency</span>
-                    <span class="tag">Scene Composition</span>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3>Image & Video Post-Processing</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Every image underwent manual editing and enhancement to ensure perfect visual consistency across the 1-minute promotion.</p>
                 </div>
             </div>
 
-            <div class="slide gradient-bg-2" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <div class="slide gradient-bg-1" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
                 <h2>Executive Summary</h2>
-                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                    <div class="card" style="border-left: 5px solid #3b82f6;">
-                        <p style="font-size: 1.25rem;">Successfully converted concepts into 200+ distinct visual assets through advanced prompt engineering and iterative editing within a strict one-day timeline.</p>
+                <div style="max-width: 700px; margin: 0 auto; text-align: left;">
+                    <div class="card" style="border-left: 5px solid #3b82f6; background: rgba(59, 130, 246, 0.05);">
+                        <p style="font-size: 1.1rem; line-height: 1.6;">Delivered a complete 60-second branding video featuring professional dubbing, sound design, and intensive video/image editing. Successfully synthesized 200+ generated assets into a cohesive marketing tool within an 18-hour window.</p>
                     </div>
                 </div>
-                <p style="margin-top: 3rem; color: #94a3b8; font-weight: 500;">Project documentation and assets synced via GitHub.</p>
+                <p style="margin-top: 3rem; color: #475569;">Project assets securely archived and synced.</p>
             </div>
         </div>
 
         <div class="controls">
             <div class="controls-inner">
-                <button id="prevBtn" onclick="changeSlide(-1)">Back</button>
+                <button id="prevBtn" onclick="changeSlide(-1)">Previous</button>
                 <div class="dots" id="dotsContainer"></div>
                 <button id="nextBtn" onclick="changeSlide(1)" class="btn-primary">Next Slide</button>
             </div>
@@ -150,8 +167,8 @@
                 else if (i < currentSlide) s.classList.add('prev');
             });
             document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            document.getElementById('prevBtn').disabled = currentSlide === 0;
-            document.getElementById('nextBtn').disabled = currentSlide === slides.length - 1;
+            document.getElementById('prevBtn').style.visibility = currentSlide === 0 ? 'hidden' : 'visible';
+            document.getElementById('nextBtn').innerText = currentSlide === slides.length - 1 ? 'Finish' : 'Next Slide';
         }
         
         function changeSlide(n) { 
@@ -172,14 +189,4 @@
     </script>
 </body>
 </html>
-                    <span class="tag">Visual Consistency</span>
-                    <span class="tag">Scene Composition</span>
-                </div>
-            </div>
-
-            <div class="slide gradient-bg-2" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
-                <h2>Executive Summary</h2>
-                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                    <div class="card" style="border-left: 5px solid #3b82f6;">
-                        <p style="font-size: 1.25rem;">Successfully converted concepts into 200+ distinct visual assets through advanced prompt engineering and iterative editing within a strict one-day timeline
 
